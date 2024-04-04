@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Alumno {
-  private List<Materia> materiasAprobadas;
+  private String nombre;
+  private String legajo;
+  private List<Materia> materiasAp;
 
   public Alumno() {
-    this.materiasAprobadas = new ArrayList<>();
+    this.materiasAp = new ArrayList<>();
   }
 
   public void agregarMateriaAprobada(Materia materia) {
-    materiasAprobadas.add(materia);
+    materiasAp.add(materia);
   }
 
   public boolean cumpleCorrelativas(Materia materia) {
@@ -19,7 +21,7 @@ public class Alumno {
       return true;
     }
     for (Materia correlativa : materia.getCorrelativas()) {
-      if (!materiasAprobadas.contains(correlativa)) {
+      if (!materiasAp.contains(correlativa)) {
         return false;
       }
     }
